@@ -1,0 +1,26 @@
+{
+  "name": "devtinder",
+  "version": "1.0.0",
+  "description": "This is a project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anish2711/devTinder.git"
+  },
+  "keywords": [
+    "Anish",
+    "Singh"
+  ],
+  "author": "Anish Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anish2711/devTinder/issues"
+  },
+  "homepage": "https://github.com/Anish2711/devTinder#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
