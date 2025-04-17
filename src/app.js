@@ -1,48 +1,37 @@
-const express = require("express")
-
+import express from "express"
+import { User } from "./models/users.model.js";
+import { dbConnect } from "./config/dataBase.js";
 
 const app = express();
-
-app.get("/user",(req,res)=>{
-
-    res.send(" get page  ")
-});
-
-app.post("/user",(req,res)=>{
-
-    res.send(" post page  ")
-});
+const PORT = 3000;
 
 
-app.put("/user",(req,res)=>{
+app.post("/signup", async (req,res)=>{
 
-    res.send({
-        "name":"Anish ",
-        "age " :16
+    const  user =  new User({
+        firstName:"Anish",
+        lastName:"Singh",
+        emailId:"anish123@gmail.com",
+        password:"anish@123",
+        age:27,
+        gender:"M"
+
     })
-});
- 
-app.delete("/user",(req,res)=>{
 
-    res.send(" delet the api  ")
-});
-
-
-app.use("/user",(req,res)=>{
-
-    res.send(" test page  ")
-});
-
-app.use("/",(req,res)=>{
-
-    res.send(" Home page  ")
-});
-
-
-
-const PORT = 3000
-
-app.listen(PORT,()=>{
-
-console.log(`port is running on ${PORT}`)
+   await user.save()
+   
+   res.send("data add sucessfully")
+   
 })
+
+dbConnect().then(()=>{
+    console.log("database connected ")
+    app.listen(PORT,()=>{
+
+        console.log(`app run on  port ${PORT}`)
+    })
+}
+).catch(()=>{
+    console.log("data base is not connected ")
+})
+
